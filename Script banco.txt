@@ -1,0 +1,34 @@
+CREATE TABLE tb_usuarios(
+ idusuario INT NOT NULL IDENTITY PRIMARY KEY,
+ login VARCHAR(20) NOT NULL,
+ senha VARCHAR(20) NOT NULL,
+ dacadastro DATETIME NOT NULL DEFAULT GETDATE()
+ ); <-- esse é antigo
+
+novo -->
+
+create table tb_usuarios(
+	idusuario int not null auto_increment primary key,
+    cpfusuario varchar(14) unique not null,
+    nomeusuario varchar(40) not null,
+    senhausuario varchar(30) not null,
+    loginusuario varchar(30) not null,
+    emailusuario varchar(40),
+    enderecousuario varchar(50),
+    cidadeusuario varchar(20)
+);
+
+create table tb_cursos(
+	idcurso int not null auto_increment primary key,
+	nomecurso varchar(30) not null,
+    cargahorariacurso varchar(10)
+);
+ 
+ create table tb_usuarios_cursando(
+	idusuarioscursando int not null auto_increment primary key,
+	fkcurso int not null,
+    fkusuario int not null
+ );
+ 
+ alter table tb_usuarios_cursando add constraint fkidcurso foreign key(fkcurso) references tb_cursos(idcurso);
+ alter table tb_usuarios_cursando add constraint fkidusuario foreign key(fkusuario) references tb_usuarios(idusuario); 
