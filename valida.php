@@ -13,7 +13,7 @@ $senha = $_POST['senha'];
 try {
  		//conexao
 			//$conexao =new mysqli("localhost","root","","banco");	 ///*mysql usa essa conexão*///
-			  $conexao = new PDO("sqlsrv:Database=dbphp7;server=localhost\SQLEXPRESS;ConnectionPooling=0","sa","root"); 
+			  $conexao = new PDO('mysql:host=localhost;dbname=dbphp7', "root", "");
 	    //conexao
   
 	} 
@@ -23,8 +23,8 @@ try {
 	}
 		
 	function encontrou($log,$pass)   // usei para testar se o usuario ja existe
-		{   $conexao = new PDO("sqlsrv:Database=dbphp7;server=localhost\SQLEXPRESS;ConnectionPooling=0","sa","root"); 
-			$query = $conexao->prepare("select count(*)  as num from tb_usuarios where login = '$log' and senha ='$pass' ");
+		{   $conexao = new PDO('mysql:host=localhost;dbname=dbphp7', "root", "");
+			$query = $conexao->prepare("select count(*)  as num from tb_usuarios where loginusuario = '$log' and senhausuario ='$pass' ");
 			$query->execute();
 			$retorno =$query->fetch(PDO::FETCH_ASSOC);
  			
@@ -39,7 +39,7 @@ try {
 		}	
 	
 	$linhas=encontrou($login,$senha);	
-	$result = $conexao->query("select * from tb_usuarios where login='$login' and senha='$senha'");
+	$result = $conexao->query("select * from tb_usuarios where loginusuario='$login' and senhausuario='$senha'");
 	
 	if($linhas==1)
 		{ 
@@ -49,10 +49,10 @@ try {
 
 				{
 					
-					$_SESSION['nomedouser'] = $registros["login"];
-					echo "<p><b><font size='10'>Bem vindo : ".$registros["login"]."</font></b></p>";
+					$_SESSION['nomedouser'] = $registros["nomeusuario"];
+					echo "<p><b><font size='10'>Bem vindo : ".$registros["nomeusuario"]."</font></b></p>";
 					echo "<p><b><font size='10'>Seu ID interno é: ".$registros["idusuario"]."</font></b></p>";
-					echo "<p><b><font size='10'>Sua data de cadastro é: ".$registros["dacadastro"]."</font></b></p>";
+					echo "<p><b><font size='10'>Seu email      é: ".$registros["emailusuario"]."</font></b></p>";
 					echo "<p><b><font size='10'>Usuário logado : ".$_SESSION['nomedouser']."</font></b></p>";
 					echo "<a href=\"index.php\">Retornar a página de login</a>";
 					echo "<p>";
