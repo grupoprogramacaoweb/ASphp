@@ -1,14 +1,5 @@
-CREATE TABLE tb_usuarios(
- idusuario INT NOT NULL IDENTITY PRIMARY KEY,
- login VARCHAR(20) NOT NULL,
- senha VARCHAR(20) NOT NULL,
- dacadastro DATETIME NOT NULL DEFAULT GETDATE()
- ); <-- esse é antigo
-
-novo -->
-
-create table tb_usuarios(
-	idusuario int not null auto_increment primary key,
+﻿create table tb_usuarios(
+    idusuario int not null auto_increment primary key,
     cpfusuario varchar(14) unique not null,
     nomeusuario varchar(40) not null,
     senhausuario varchar(30) not null,
