@@ -50,6 +50,7 @@ try {
 				{
 					
 					$_SESSION['nomedouser'] = $registros["nomeusuario"];
+					$_SESSION['iduser'] = $registros["idusuario"];
 					echo "<p><b><font size='10'>Bem vindo : ".$registros["nomeusuario"]."</font></b></p>";
 					echo "<p><b><font size='10'>Seu ID interno é: ".$registros["idusuario"]."</font></b></p>";
 					echo "<p><b><font size='10'>Seu email      é: ".$registros["emailusuario"]."</font></b></p>";
@@ -58,6 +59,8 @@ try {
 					echo "<p>";
 					echo "<a href=\"logout.php\">Logout</a>";
 					echo "aqui";
+					echo "<p>";
+					echo "<a href=\"escolhecurso.php\">Escolher curso(s)</a>";
 				}
 		}       
 		else
