@@ -30,7 +30,8 @@ if(isset($_POST['senha']))   $senha = $_POST['senha'];
 
 if(isset($_SESSION['verificador']))	if ($_SESSION['verificador']==1)
 		{
-		echo "<p><b><font size='10'>Bem vindo aluno*:".$_SESSION['nomedouser']."</font></b></p>";
+		
+		echo " <div align='center'><p><b><font size='10'>Bem vindo aluno*:".$_SESSION['nomedouser']."</font></b></p> </div>";
 		}
 
 if(empty($_SESSION['verificador']))
@@ -80,7 +81,7 @@ try {
 					$_SESSION['nomedouser'] = $registros["nomeusuario"];
 					$_SESSION['iduser']     = $registros["idusuario"];
 					$_SESSION['verificador']=1;
-					echo "<p><b><font size='10'>Bem vindo aluno:".$_SESSION['nomedouser']."</font></b></p>";
+					echo " <div align='center'><p><b><font size='10'>Bem vindo aluno:".$_SESSION['nomedouser']."</font></b></p> </div>";
 				}
 		}       
 		else
@@ -101,6 +102,7 @@ echo "<p>";
 		 <table align="center">
 			<tr>
 				<td><input type="button" value="Matricule-se" id="Escolhe Cursos" onClick=location.href="escolhecurso.php" class="btlogin">
+				<td><input type="button" value="Minhas matriculas" id="Logout" onClick=location.href="mostrarcursos.php" class="btlogin">
 				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
 			</tr>
 			<p>
