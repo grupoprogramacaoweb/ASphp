@@ -27,11 +27,13 @@ session_start();
 if(isset($_POST['usuario'])) $login = $_POST['usuario'];
 if(isset($_POST['senha']))   $senha = $_POST['senha'];
 
-   if ($_SESSION['verificador']==1)
-{
-echo "<p><b><font size='10'>Bem vindo la do topo : ".$_SESSION['nomedouser']."</font></b></p>";
-}
-else
+
+if(isset($_SESSION['verificador']))	if ($_SESSION['verificador']==1)
+		{
+		echo "<p><b><font size='10'>Bem vindo aluno*:".$_SESSION['nomedouser']."</font></b></p>";
+		}
+
+if(empty($_SESSION['verificador']))
 {
 try {
  		//conexao
@@ -64,7 +66,7 @@ try {
 		
 		
 	 	$linhas=encontrou($login,$senha);	
-		var_dump($linhas);
+	
 	    $result = $conexao->query("select * from tb_usuarios where loginusuario='$login' and senhausuario='$senha'");
 	
 	if($linhas==1)
@@ -78,7 +80,7 @@ try {
 					$_SESSION['nomedouser'] = $registros["nomeusuario"];
 					$_SESSION['iduser']     = $registros["idusuario"];
 					$_SESSION['verificador']=1;
-					echo "<p><b><font size='10'>Bem vindo : ".$_SESSION['nomedouser']."</font></b></p>";
+					echo "<p><b><font size='10'>Bem vindo aluno:".$_SESSION['nomedouser']."</font></b></p>";
 				}
 		}       
 		else
@@ -98,7 +100,7 @@ echo "<p>";
 		</table>
 		 <table align="center">
 			<tr>
-				<td><input type="button" value="Escolhe Cursos" id="Escolhe Cursos" onClick=location.href="escolhecurso.php" class="btlogin">
+				<td><input type="button" value="Matricule-se" id="Escolhe Cursos" onClick=location.href="escolhecurso.php" class="btlogin">
 				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
 			</tr>
 			<p>

@@ -23,8 +23,7 @@
  if(isset($_SESSION['iduser']))
 	{
 		echo "Usuário Logado: ".$_SESSION['iduser'];
-		echo "<p>";
-		echo "<a href=\"logout.php\">Logout</a>";
+
 	}
   else
 	{
@@ -110,10 +109,10 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 				$registros = $result->fetch(PDO::FETCH_ASSOC);
 
 			; 
-				$curso=$_POST['selectCursos'];
+				if(isset($_POST['selectCursos']))$curso=$_POST['selectCursos'];
 	  			$id=$_SESSION['iduser'];
 
-	  	if ($curso>0) {
+	  if(isset($curso))	if ($curso>0) {
 	  					  			
 	  			 echo "Registro inserido com sucesso.";
 				$query = $conexao->prepare("INSERT INTO tb_usuarios_cursando (fkcurso, fkusuario) values('$curso','$id')");
@@ -124,8 +123,14 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 			}
 	
 				?>
-
-			<input type="submit" name="btnCadUsuario" value="RealizarCadastro" class="botaoEnviar">
+</table>
+		 <table align="center">
+			<tr>
+				<td><input type="submit" name="btnCadUsuario" value="RealizarCadastro" class="botaoEnviar">
+				<td><input type="button" value="Retornar" id="Retorna" onClick=location.href="valida.php" class="botaoEnviar">
+			</tr>
+			<p>
+		</table>
 
 		</form>
 	</body>
