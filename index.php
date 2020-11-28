@@ -28,8 +28,7 @@
 				<td><input type="submit" value="Continuar" id="continuar" class="btlogin">
 				<td><input type="reset" value="Limpar" class="btlogin">
 				<td><input type="button" value="Criar Conta" id="criaconta" onClick=location.href="cadastra.html" class="btlogin">
-				<td><input type="button" value="Verifica logado" id="criaconta" onClick=location.href="teste.php" class="btlogin">
-			</tr>
+				</tr>
 			<p>
 		</table>
 		<br>

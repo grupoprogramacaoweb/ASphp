@@ -1,15 +1,38 @@
-﻿<?php  
+﻿<html>
+ <head>
+	<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+	<title>Portal do Aluno</title>
+	  	 <link rel="stylesheet" href="css.css">
+ </head>
+
+<body>
+
+	<fieldset>
+		<div style="background-color:#B0E0E6;text-align:center">
+			<p><font size="10">Portal do Aluno</font></p>
+		</div>
+		
+		<br>
+		
+		  <?php  
 /* Alex kubiaki dos Santos  AP2 --> 18/10/2020 --> Pandemia Mode ON*/
 
-if (($_POST['usuario']=='admin') && $_POST['senha']=='admin') {
-	echo "<script language='javascript' type='text/javascript'>window.location.href='admin.php'</script>";
-}
+
+
+ 
 
 session_start();
-session_destroy();
-$login = $_POST['usuario'];
-$senha = $_POST['senha'];
+ 
 
+if(isset($_POST['usuario'])) $login = $_POST['usuario'];
+if(isset($_POST['senha']))   $senha = $_POST['senha'];
+
+   if ($_SESSION['verificador']==1)
+{
+echo "<p><b><font size='10'>Bem vindo la do topo : ".$_SESSION['nomedouser']."</font></b></p>";
+}
+else
+{
 try {
  		//conexao
 			//$conexao =new mysqli("localhost","root","","banco");	 ///*mysql usa essa conexão*///
@@ -37,27 +60,25 @@ try {
               return 0;
 			}
 		}	
-	
-	$linhas=encontrou($login,$senha);	
-	$result = $conexao->query("select * from tb_usuarios where loginusuario='$login' and senhausuario='$senha'");
+		
+		
+		
+	 	$linhas=encontrou($login,$senha);	
+		var_dump($linhas);
+	    $result = $conexao->query("select * from tb_usuarios where loginusuario='$login' and senhausuario='$senha'");
 	
 	if($linhas==1)
 		{ 
-			session_start();
+
 			$data = array();
 			while ($registros = $result->fetch(PDO::FETCH_ASSOC))
 
 				{
 					
 					$_SESSION['nomedouser'] = $registros["nomeusuario"];
-					echo "<p><b><font size='10'>Bem vindo : ".$registros["nomeusuario"]."</font></b></p>";
-					echo "<p><b><font size='10'>Seu ID interno é: ".$registros["idusuario"]."</font></b></p>";
-					echo "<p><b><font size='10'>Seu email      é: ".$registros["emailusuario"]."</font></b></p>";
-					echo "<p><b><font size='10'>Usuário logado : ".$_SESSION['nomedouser']."</font></b></p>";
-					echo "<a href=\"index.php\">Retornar a página de login</a>";
-					echo "<p>";
-					echo "<a href=\"logout.php\">Logout</a>";
-					echo "aqui";
+					$_SESSION['iduser']     = $registros["idusuario"];
+					$_SESSION['verificador']=1;
+					echo "<p><b><font size='10'>Bem vindo : ".$_SESSION['nomedouser']."</font></b></p>";
 				}
 		}       
 		else
@@ -66,6 +87,28 @@ try {
 			window.location.href='index.php';</script>";
 		}
 echo "<p>";
-
+}
 	
 ?>
+
+		<table align="center">
+			<tr>
+
+
+		</table>
+		 <table align="center">
+			<tr>
+				<td><input type="button" value="Escolhe Cursos" id="Escolhe Cursos" onClick=location.href="escolhecurso.php" class="btlogin">
+				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
+			</tr>
+			<p>
+		</table>
+		<br>
+	</fieldset>
+ </form>
+ 
+	<div style="background-color:#B0E0E6;text-align:center">
+		<p><font size="3">Todos direitos reservados a Alex Kubiaki - Mauricio Godoy - Pedro Henrique Schmidt</font></p>
+	</div>
+	</body>
+</html>
