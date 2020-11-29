@@ -9,6 +9,17 @@
     cidadeusuario varchar(20)
 );
 
+create table tb_usuarios_adm(
+    idusuario int not null auto_increment primary key,
+    cpfusuario varchar(14) unique not null,
+    nomeusuario varchar(40) not null,
+    senhausuario varchar(30) not null,
+    loginusuario varchar(30) not null,
+    emailusuario varchar(40),
+    enderecousuario varchar(50),
+    cidadeusuario varchar(20)
+);
+
 create table tb_cursos(
 	idcurso int not null auto_increment primary key,
 	nomecurso varchar(30) not null,
