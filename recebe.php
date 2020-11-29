@@ -42,15 +42,46 @@ try {
 			}
 		}
 		
+			function validacpf($cepefe)   // usei para testar se o cpf ja existe
+		{   $conexao = new PDO('mysql:host=localhost;dbname=dbphp7', "root", "");
+					
+			$query = $conexao->prepare("select * from tb_usuarios where cpfusuario = '".$cepefe."' ");
+			$query->execute();
+			$retorno = $query->rowCount();
+
+			if ($retorno != 0)
+			  {
+				return $resultado=0;
+			  }
+			else
+			{
+			 return $resultado=1;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		 $verificacpf=validacpf($cpf);
 		 $retornado=jaexiste($usuario);
 		 
 		  if ($retornado==1)
 		  {
-			echo "Registro inserido com sucesso.";
-			$query = $conexao->prepare("INSERT INTO tb_usuarios (cpfusuario,nomeusuario,senhausuario,loginusuario,emailusuario,enderecousuario,cidadeusuario) values('$cpf','$nome','$senha','$usuario','$email','$endereco','$cidade')");
-			$query->execute();
-			echo "<a href=\"index.php\">Retornar a página de login</a>";    
-		   }
+			  if ($verificacpf==1)
+	      	  {
+				echo "Registro inserido com sucesso.";
+				$query = $conexao->prepare("INSERT INTO tb_usuarios (cpfusuario,nomeusuario,senhausuario,loginusuario,emailusuario,enderecousuario,cidadeusuario) values('$cpf','$nome','$senha','$usuario','$email','$endereco','$cidade')");
+				$query->execute();
+				echo "<a href=\"index.php\">Retornar a página de login</a>";    
+		      }
+			  else
+			{
+			 echo "<b>Este cpf já está em uso, retorne e refaça seu cadastro com outro número de cpf </b><p>";
+			  echo "<a href=\"cadastra.html\">Retornar a página de Cadastro</a>";  	
+			}
+		  }
 			else
 			{
 			  echo "<b>Este nome de usuário já está em uso, retorne e refaça seu cadastro com outro nome de usuário</b><p>";
