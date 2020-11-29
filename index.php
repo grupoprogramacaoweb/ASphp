@@ -9,7 +9,7 @@
   <form action="valida.php" method="POST">
 	<fieldset>
 		<div style="background-color:#B0E0E6;text-align:center">
-			<p><font size="10">Sistema de login</font></p>
+			<p><font size="10">Sistema de login - Usuario</font></p>
 		</div>
 		
 		<br>
@@ -28,6 +28,8 @@
 				<td><input type="submit" value="Continuar" id="continuar" class="btlogin">
 				<td><input type="reset" value="Limpar" class="btlogin">
 				<td><input type="button" value="Criar Conta" id="criaconta" onClick=location.href="cadastra.html" class="btlogin">
+					<td><input type="button" value="Login ADM" id="criaconta" onClick=location.href="indexadmin.php" class="btlogin">
+
 				</tr>
 			<p>
 		</table>
