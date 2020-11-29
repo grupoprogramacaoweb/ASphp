@@ -178,7 +178,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
             <table align="center">
 			<tr>
 				
-				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
+				<td><input type="button" value="Voltar" id="Logout" onClick=location.href="validaadm.php" class="btlogin">
 			</tr>
 			<p>
 		</table>
