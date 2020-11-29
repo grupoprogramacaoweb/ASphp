@@ -22,14 +22,14 @@
 			$query->execute();
 			$retorno =$query->fetch(PDO::FETCH_ASSOC);
  			
-			if ($retorno['num'] >1)
+			if ($retorno['num'] >=1)
 				{
-					//echo"retornou 111111";
+				
 					return 1;
 				}
 			else		 
 			{
-				//echo"retornou 0000000";
+				
               return 0;
 			}
 		}
@@ -101,7 +101,7 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 
 
 	while ($registros = $result->fetch(PDO::FETCH_ASSOC)){
-		session_start();
+		//session_start();
 
 		
 			?>
@@ -132,10 +132,10 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 
 				$registros = $result->fetch(PDO::FETCH_ASSOC);
 
-			 
-				if(isset($_POST['selectCursos']))$curso=$_POST['selectCursos'];
+			  if(isset($_POST['selectCursos'])) $curso=$_POST['selectCursos'];
 	  			$id=$_SESSION['iduser'];
-
+				
+     
  
 
 				  if(isset($curso))	if ($curso>0)
@@ -155,7 +155,7 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 
 				echo "<b>selecione um curso</b><p>";
 			}
-	jaestoumatriculado($curso,$id)
+
 				?>
 </table>
 		 <table align="center">

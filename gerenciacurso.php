@@ -15,11 +15,7 @@
 		<br>
 
  <?php
-/**
- * Projeto de aplicação CRUD utilizando PDO - Gerencia de cursos
- *
- * Alexandre Bezerra Barbosa
- */
+
  
 // Verificar se foi enviando dados via POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
