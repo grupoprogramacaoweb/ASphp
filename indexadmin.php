@@ -9,7 +9,7 @@
   <form action="validaadm.php" method="POST">
 	<fieldset>
 		<div style="background-color:#B0E0E6;text-align:center">
-			<p><font size="10">Sistema de Login - Adminstrador</font></p>
+			<p><font size="10">Sistema de Login - Administrador</font></p>
 		</div>
 		
 		<br>
