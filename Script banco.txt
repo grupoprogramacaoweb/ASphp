@@ -19,7 +19,9 @@ create table tb_cursos(
 	idusuarioscursando int not null auto_increment primary key,
 	fkcurso int not null,
         fkusuario int not null,
-        concluido int(11) DEFAULT 0
+	concluido int(11) DEFAULT 0,
+        data_conclusao date DEFAULT NULL
+        
  );
  
  alter table tb_usuarios_cursando add constraint fkidcurso foreign key(fkcurso) references tb_cursos(idcurso);

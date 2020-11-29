@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				if ($id2 != "") {
     try {
 if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "updt" && $id2 != "") {
-       		$query = $conexao->prepare("UPDATE tb_usuarios_cursando SET concluido=1 WHERE fkusuario ='$id' and fkcurso='$id2'");
+       		$query = $conexao->prepare("UPDATE tb_usuarios_cursando SET concluido=1, data_conclusao=now() WHERE fkusuario ='$id' and fkcurso='$id2'");
             $query->execute();
         } 
 
