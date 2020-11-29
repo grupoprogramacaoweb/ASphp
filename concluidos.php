@@ -28,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>Cursos Matriculados</title>
+            <title>Cursos Concluidos</title>
             	  	 <link rel="stylesheet" href="css.css">
         </head>
         <body>
         	<div style="background-color:#B0E0E6;text-align:center">
-			<p><font size="10">Cursos Matriculados</font></p>
+			<p><font size="10">Cursos Concluidos</font></p>
 		</div>
             <table border="1" width="100%">
                 <tr>
@@ -44,19 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?php
 
 //xxxXXXxX				
-				if ($id2 != "") {
-    try {
-if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "updt" && $id2 != "") {
-       		$query = $conexao->prepare("UPDATE tb_usuarios_cursando SET concluido=1 WHERE fkusuario ='$id' and fkcurso='$id2'");
-            $query->execute();
-        } 
+	//			if ($id2 != "") {
+  //  try {
+//if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "updt" && $id2 != "") {
+//       		$query = $conexao->prepare("UPDATE tb_usuarios_cursando SET concluido=1 WHERE fkusuario ='$id' and fkcurso='$id2'");
+  //          $query->execute();
+  //      } 
 
   
 
-    } catch (PDOException $erro) {
-        echo "Erro: ".$erro->getMessage();
-    }
-}
+ //   } catch (PDOException $erro) {
+ //       echo "Erro: ".$erro->getMessage();
+ //   }
+//}
 
 
 
@@ -66,13 +66,13 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "updt" && $id2 != "") {
 								 
                 // Bloco que realiza o papel do Read - recupera os dados e apresenta na tela
                 try {
-                    $stmt = $conexao->prepare("select c.nomecurso, c.cargahorariacurso,uc.fkusuario,uc.fkcurso from tb_cursos c inner join tb_usuarios_cursando uc on uc.fkcurso=c.idcurso inner join tb_usuarios u on u.idusuario = uc.fkusuario where idusuario=? and concluido=0");
+                    $stmt = $conexao->prepare("select c.nomecurso, c.cargahorariacurso,uc.fkusuario,uc.fkcurso from tb_cursos c inner join tb_usuarios_cursando uc on uc.fkcurso=c.idcurso inner join tb_usuarios u on u.idusuario = uc.fkusuario where idusuario=? and concluido=1");
                     $stmt->bindParam(1, $id);
                     if ($stmt->execute()) {
                         while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
                             echo "<tr>";
                             echo "<td>".$rs->nomecurso."</td><td>".$rs->cargahorariacurso."</td><td><center>"
-							    ."<a href=\"?act=updt&id2=".$rs->fkcurso."\">[Concluir]</a></center></td>";
+							    ."<a href=\"?act=updt&id2=".$rs->fkcurso."\">[Imprimir certificado]</a></center></td>";
 						    echo "</tr>";
 						
                         }

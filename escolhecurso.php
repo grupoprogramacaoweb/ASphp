@@ -148,7 +148,7 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 					$query->execute();
 					}
 					else {
-					 echo "Você já está matriculado neste curso";	
+					 echo "Você já está matriculado neste curso ou já concluiu este curso";	
 					}
 					}
 			else{

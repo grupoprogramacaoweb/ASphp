@@ -103,6 +103,7 @@ echo "<p>";
 			<tr>
 				<td><input type="button" value="Matricule-se" id="Escolhe Cursos" onClick=location.href="escolhecurso.php" class="btlogin">
 				<td><input type="button" value="Minhas matriculas" id="Logout" onClick=location.href="mostrarcursos.php" class="btlogin">
+				<td><input type="button" value="Cursos concluidos" id="Logout" onClick=location.href="concluidos.php" class="btlogin">
 				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
 			</tr>
 			<p>
