@@ -13,7 +13,7 @@
 		</div>
 		
 		<br>
-
+ <body>
  <?php
 
  
@@ -110,13 +110,9 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
     }
 }
 ?>
-<!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Gerencia de cursos</title>
-        </head>
-        <body>
+
+
+       
             <form action="?act=save" method="POST" name="form1" >
                 <h1></h1>
                 <hr>
@@ -178,6 +174,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
                 }
                 ?>
             </table>
+			
             <table align="center">
 			<tr>
 				
@@ -185,6 +182,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != "") {
 			</tr>
 			<p>
 		</table>
+		</fieldset>
 		<div style="background-color:#B0E0E6;text-align:center">
 		<p><font size="3">Todos direitos reservados a Alex Kubiaki - Mauricio Godoy - Pedro Henrique Schmidt</font></p>
 		</div>

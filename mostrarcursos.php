@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 session_start();
 $id=$_SESSION['iduser'];
 
@@ -55,5 +56,8 @@ try {
             <br><br>
             <center><input type="button" value="Voltar" id="voltar" onClick=location.href="valida.php" class="btlogin">
             	</center>
+				<div style="background-color:#B0E0E6;text-align:center">
+		<p><font size="3">Todos direitos reservados a Alex Kubiaki - Mauricio Godoy - Pedro Henrique Schmidt</font></p>
+		</div>
         </body>
     </html>
