@@ -1,7 +1,7 @@
 <html>
  <head>
 	<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
-	<title>Portal do Aluno-> Escolha de cursos</title>
+	<title>Escolha de cursos</title>
 	  	 <link rel="stylesheet" href="css.css">
  </head>
 
@@ -160,8 +160,8 @@ $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRIN
 </table>
 		 <table align="center">
 			<tr>
-				<td><input type="submit" name="btnCadUsuario" value="RealizarCadastro" class="botaoEnviar">
-				<td><input type="button" value="Retornar" id="Retorna" onClick=location.href="valida.php" class="botaoEnviar">
+				<td><input type="submit" name="btnCadUsuario" value="Matricular" class="botaoEnviar">
+				<td><input type="button" value="Voltar" id="Retorna" onClick=location.href="valida.php" class="botaoEnviar">
 			</tr>
 			<p>
 		</table>
