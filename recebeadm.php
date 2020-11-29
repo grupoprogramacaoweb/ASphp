@@ -15,14 +15,14 @@ try {
 		echo 'Falha na conexão: ' . $conexao->getMessage();
 	}
 	   
-	  $dados   =$_POST; 
-	  $nome    =$dados['nome'];	  
-	  $usuario =$dados['usuario'];
-	  $senha   =$dados['senha'];
-	  $cpf     =$dados['cpf'];
-	  $email   =$dados['email'];
-	  $endereco=$dados['endereco'];
-	  $cidade  =$dados['cidade'];
+	  $dadosadm   =$_POST; 
+	  $nomeadm    =$dados['nomeadm'];	  
+	  $usuarioadm =$dados['usuarioadm'];
+	  $senhaadm   =$dados['senhaadm'];
+	  $cpfadm     =$dados['cpfadm'];
+	  $emailadm   =$dados['emailadm'];
+	  $enderecoadm=$dados['enderecoadm'];
+	  $cidadeadm  =$dados['cidadeadm'];
 	  
 	  	  
 		function jaexiste($valor)   // usei para testar se o usuario ja existe
@@ -64,17 +64,17 @@ try {
 		
 		
 		
-		 $verificacpf=validacpf($cpf);
-		 $retornado=jaexiste($usuario);
+		 $verificacpf=validacpf($cpfadm);
+		 $retornado=jaexiste($usuarioadm);
 		 
 		  if ($retornado==1)
 		  {
 			  if ($verificacpf==1)
 	      	  {
 				echo "Registro inserido com sucesso.";
-				$query = $conexao->prepare("INSERT INTO tb_usuarios_adm (cpfusuario,nomeusuario,senhausuario,loginusuario,emailusuario,enderecousuario,cidadeusuario) values('$cpf','$nome','$senha','$usuario','$email','$endereco','$cidade')");
+				$query = $conexao->prepare("INSERT INTO tb_usuarios_adm (cpfusuario,nomeusuario,senhausuario,loginusuario,emailusuario,enderecousuario,cidadeusuario) values('$cpfadm','$nomeadm','$senhaadm','$usuarioadm','$emailadm','$enderecoadm','$cidadeadm')");
 				$query->execute();
-				echo "<a href=\"indexadm.php\">Retornar a página de login Administrador</a>";    
+				echo "<a href=\"indexadmin.php\">Retornar a página de login Administrador</a>";    
 				//echo "<a href=\"index.php\">Retornar a página de login Usuario</a>";
 		      }
 			  else

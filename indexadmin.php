@@ -16,11 +16,11 @@
 		
 		<table align="center">
 			<tr>
-				<td>Login:<input type=text id="usuario" name="usuario" required>
+				<td>Login:<input type=text id="usuarioadm" name="usuarioadm" required>
 			</tr>
 			
 			<tr>
-				<td>Senha:<input type=password id="senha" name="senha" required>
+				<td>Senha:<input type=password id="senhaadm" name="senhaadm" required>
 			</tr>
 		</table>
 		 <table align="center">

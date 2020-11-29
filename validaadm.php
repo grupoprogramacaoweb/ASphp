@@ -24,17 +24,17 @@
 session_start();
  
 
-if(isset($_POST['usuario'])) $login = $_POST['usuario'];
-if(isset($_POST['senha']))   $senha = $_POST['senha'];
+if(isset($_POST['usuarioadm'])) $loginadm = $_POST['usuarioadm'];
+if(isset($_POST['senhaadm']))   $senhaadm = $_POST['senhaadm'];
 
 
-if(isset($_SESSION['verificador']))	if ($_SESSION['verificador']==1)
+if(isset($_SESSION['verificadoradm']))	if ($_SESSION['verificadoradm']==1)
 		{
 		
-		echo " <div align='center'><p><b><font size='10'>Bem vindo Admnistrador*:".$_SESSION['nomedouser']."</font></b></p> </div>";
+		echo " <div align='center'><p><b><font size='10'>Bem vindo Admnistrador*:".$_SESSION['nomedoadm']."</font></b></p> </div>";
 		}
 
-if(empty($_SESSION['verificador']))
+if(empty($_SESSION['verificadoradm']))
 {
 try {
  		//conexao
@@ -66,9 +66,9 @@ try {
 		
 		
 		
-	 	$linhas=encontrou($login,$senha);	
+	 	$linhas=encontrou($loginadm,$senhaadm);	
 	
-	    $result = $conexao->query("select * from tb_usuarios_adm where loginusuario='$login' and senhausuario='$senha'");
+	    $result = $conexao->query("select * from tb_usuarios_adm where loginusuario='$loginadm' and senhausuario='$senhaadm'");
 	
 	if($linhas==1)
 		{ 
@@ -78,10 +78,10 @@ try {
 
 				{
 					
-					$_SESSION['nomedouser'] = $registros["nomeusuario"];
-					$_SESSION['iduser']     = $registros["idusuario"];
-					$_SESSION['verificador']=1;
-					echo " <div align='center'><p><b><font size='10'>Bem vindo Administrador: ".$_SESSION['nomedouser']."</font></b></p> </div>";
+					$_SESSION['nomedoadm'] = $registros["nomeusuario"];
+					$_SESSION['idadm']     = $registros["idusuario"];
+					$_SESSION['verificadoradm']=1;
+					echo " <div align='center'><p><b><font size='10'>Bem vindo Administrador: ".$_SESSION['nomedoadm']."</font></b></p> </div>";
 				}
 		}       
 		else
@@ -102,7 +102,7 @@ echo "<p>";
 		 <table align="center">
 			<tr>
 				<td><input type="button" value="Gerenciar cursos" id="Escolhe Cursos" onClick=location.href="gerenciacurso.php" class="btlogin">
-				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logout.php" class="btlogin">
+				<td><input type="button" value="Logout" id="Logout" onClick=location.href="logoutadm.php" class="btlogin">
 			</tr>
 			<p>
 		</table>
