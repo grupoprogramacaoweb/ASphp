@@ -54,7 +54,8 @@ $TITULO="ESCOLA POLITECNICA GUSMAN";
 //imagettftext(image, size, angle, x, y, color, fontfile, text)
 
 imagettftext($image, 22, 0, 140, 250, $titleColor,$font1,"CERTIFICADO DE CONCLUSÃO DE CURSO");
-imagettftext($image, 11, 0, 80, 300, $titleColor,$font1,"CERTIFICAMOS QUE.  ".$LINHA1."   CONCLUIU O CURSO DE   ".$LINHA2."   COM DURAÇÃO DE  ".$LINHA3."  HORAS");
+imagettftext($image, 14, 0, 390, 280, $titleColor,$font2,"CERTIFICAMOS QUE");
+imagettftext($image, 11, 0, 80, 320, $titleColor,$font1, $LINHA1."   CONCLUIU O CURSO DE   ".$LINHA2."   COM DURAÇÃO DE  ".$LINHA3."  HORAS");
 imagettftext($image, 11, 0, 80, 340, $titleColor,$font1,"TORNANDO ASSIM APTO A EXERCER TODA E QUALQUER ATIVIDADE RELACIONADA AO CURSO.");
 imagettftext($image, 11, 0, 130, 420, $titleColor,$font1,"CURSO PROFISSIONALIZANTE ".$LINHA4);
 imagettftext($image, 30, 0, 190, 150, $titleColor,$font2,$TITULO);
