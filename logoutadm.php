@@ -4,5 +4,5 @@ unset ($_SESSION['verificadoradm']);
 unset ($_SESSION['nomedoadm']);
 unset ($_SESSION['idadm']);
 //session_destroy();
-header('Location: index.php');
+header('Location: indexadmin.php');
 ?>
