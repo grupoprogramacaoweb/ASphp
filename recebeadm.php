@@ -16,13 +16,13 @@ try {
 	}
 	   
 	  $dadosadm   =$_POST; 
-	  $nomeadm    =$dados['nomeadm'];	  
-	  $usuarioadm =$dados['usuarioadm'];
-	  $senhaadm   =$dados['senhaadm'];
-	  $cpfadm     =$dados['cpfadm'];
-	  $emailadm   =$dados['emailadm'];
-	  $enderecoadm=$dados['enderecoadm'];
-	  $cidadeadm  =$dados['cidadeadm'];
+	  $nomeadm    =$dadosadm['nomeadm'];	  
+	  $usuarioadm =$dadosadm['usuarioadm'];
+	  $senhaadm   =$dadosadm['senhaadm'];
+	  $cpfadm     =$dadosadm['cpfadm'];
+	  $emailadm   =$dadosadm['emailadm'];
+	  $enderecoadm=$dadosadm['enderecoadm'];
+	  $cidadeadm  =$dadosadm['cidadeadm'];
 	  
 	  	  
 		function jaexiste($valor)   // usei para testar se o usuario ja existe

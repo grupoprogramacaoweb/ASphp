@@ -43,26 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tr>
                 <?php
 
-//xxxXXXxX				
-	//			if ($id2 != "") {
-  //  try {
-//if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "updt" && $id2 != "") {
-//       		$query = $conexao->prepare("UPDATE tb_usuarios_cursando SET concluido=1 WHERE fkusuario ='$id' and fkcurso='$id2'");
-  //          $query->execute();
-  //      } 
-
-  
-
- //   } catch (PDOException $erro) {
- //       echo "Erro: ".$erro->getMessage();
- //   }
-//}
-
-
-
-
-
-				/////XxX///////////////////////////////
 								 
                 // Bloco que realiza o papel do Read - recupera os dados e apresenta na tela
                 try {
@@ -72,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
                             echo "<tr>";
                             echo "<td>".$rs->nomecurso."</td><td>".$rs->cargahorariacurso."</td><td><center>"
-							    ."<a href=\"?act=updt&id2=".$rs->fkcurso."\">[Imprimir certificado]</a></center></td>";
+							    ."<a href=\"cert.php?act=gera&id1=".$id."&id2=".$rs->fkcurso."\">[Imprimir certificado]</a></center></td>";
 						    echo "</tr>";
 						
                         }
